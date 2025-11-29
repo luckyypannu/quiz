@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple JavaScript Quiz Game</title>
+</head>
+<body>
+
+<script>
+const quizQuestions = [
+    { question: "What is the capital of India?", answer: "delhi" },
+    { question: "What programming language runs in the browser?", answer: "javascript" },
+    { question: "How many days are there in a week?", answer: "7" },
+    { question: "What is the largest planet in our solar system?", answer: "jupiter" }
+];
+
+function runQuiz() {
+
+   
+    let score = 0;
+
+    
+    for (let i = 0; i < quizQuestions.length; i++) {
+
+        
+        let currentQuestion = quizQuestions[i].question;
+
+        
+        let userAnswer = prompt(currentQuestion);
+
+        
+        if (userAnswer === null) {
+            alert("Quiz cancelled!");
+            return; 
+        }
+
+        userAnswer = userAnswer.toLowerCase().trim();
+
+        
+        if (userAnswer === quizQuestions[i].answer) {
+            score++;    
+            alert("Correct! ");
+        } else {
+            alert("Wrong \nCorrect Answer: " + quizQuestions[i].answer);
+        }
+    }
+
+    
+    console.log("========== QUIZ RESULT ==========");
+    console.log("Your Final Score: " + score + " out of " + quizQuestions.length);
+    console.log("=================================");
+
+    alert("Quiz Finished!\nYour Score: " + score + "/" + quizQuestions.length);
+}
+
+runQuiz();
+</script>
+
+</body>
+</html>
